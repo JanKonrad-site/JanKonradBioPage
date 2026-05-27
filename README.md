@@ -1,6 +1,6 @@
 # Jan Konrád · webová prezentace
 
-Statická webová prezentace ve stylu hranatého editorial/brutalist patternu. Verze v6 upravuje slide „Kdo jsem“, posiluje levé odsazení, nahrazuje formulaci přístupu za „Projektová výuka na prvním místě“ a přidává předmět „Základy webových technologií a prezentací“.
+Statická webová prezentace ve stylu hranatého editorial/brutalist patternu. Barevná paleta: černá, šedá, bílá. Obsah je postavený jako medailonek k výuce ICT, webových technologií, 3D grafiky a základů videoherní tvorby.
 
 ## Spuštění
 
@@ -10,17 +10,18 @@ Otevři `index.html` v prohlížeči.
 
 - šipky vlevo/vpravo
 - mezerník pro další slide
-- boční navigace
+- boční navigace na desktopu
+- hamburger menu na mobilu
 
 ## Soubory
 
 - `index.html` – obsah slidů
-- `styles.css` – černá/šedá/bílá paleta, layout, responzivita, animace
-- `script.js` – navigace, aktivní prvky a klávesnice
+- `styles.css` – layout, responzivita, animace, hover/active stavy
+- `script.js` – přepínání slidů, stav navigace, mobilní hamburger menu
 
+## Verze v8
 
-## Verze v7
-
-- Přidán svislý scroll uvnitř obsahového kontejneru slidu, pokud se obsah nevejde.
-- Při přepnutí slidu se scroll vrací nahoru.
-- Na mobilu zůstává přirozené stránkové scrollování kvůli lepší ovladatelnosti.
+- Přidáno tradiční hamburger menu pro mobilní zobrazení.
+- Mobilní navigace se otevírá jako tmavý dropdown panel.
+- Menu se automaticky zavře po výběru slidu, při změně velikosti okna nebo klávesou Escape.
+- Zachováno desktopové boční menu a scroll uvnitř obsahového kontejneru slidu.

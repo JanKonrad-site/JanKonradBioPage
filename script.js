@@ -7,8 +7,25 @@ const slideLabel = document.getElementById('slideLabel');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const logo = document.querySelector('.logo-mark');
+const sideRail = document.querySelector('.side-rail');
+const menuToggle = document.getElementById('menuToggle');
 
 let activeIndex = 0;
+
+function closeMobileMenu() {
+  if (!sideRail || !menuToggle) return;
+  sideRail.classList.remove('is-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Otevřít menu');
+}
+
+function toggleMobileMenu() {
+  if (!sideRail || !menuToggle) return;
+  const isOpen = sideRail.classList.toggle('is-open');
+  menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  menuToggle.setAttribute('aria-label', isOpen ? 'Zavřít menu' : 'Otevřít menu');
+}
+
 
 totalSlides.textContent = String(slides.length);
 
@@ -45,6 +62,7 @@ function refreshScrollState() {
 }
 
 function showSlide(nextIndex) {
+  closeMobileMenu();
   activeIndex = clamp(nextIndex, 0, slides.length - 1);
 
   slides.forEach((slide, index) => {
@@ -83,6 +101,7 @@ function previousSlide() {
 
 prevBtn.addEventListener('click', previousSlide);
 nextBtn.addEventListener('click', nextSlide);
+if (menuToggle) menuToggle.addEventListener('click', toggleMobileMenu);
 logo.addEventListener('click', (event) => {
   event.preventDefault();
   showSlide(0);
@@ -110,8 +129,21 @@ window.addEventListener('keydown', (event) => {
     event.preventDefault();
     showSlide(slides.length - 1);
   }
+
+  if (key === 'escape') {
+    closeMobileMenu();
+  }
 });
 
-window.addEventListener('resize', refreshScrollState);
+window.addEventListener('resize', () => {
+  closeMobileMenu();
+  refreshScrollState();
+});
+
+document.addEventListener('click', (event) => {
+  if (!sideRail || !menuToggle) return;
+  if (!sideRail.classList.contains('is-open')) return;
+  if (!sideRail.contains(event.target)) closeMobileMenu();
+});
 
 showSlide(0);
