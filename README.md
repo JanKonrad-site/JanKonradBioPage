@@ -25,3 +25,9 @@ Otevři `index.html` v prohlížeči.
 - Mobilní navigace se otevírá jako tmavý dropdown panel.
 - Menu se automaticky zavře po výběru slidu, při změně velikosti okna nebo klávesou Escape.
 - Zachováno desktopové boční menu a scroll uvnitř obsahového kontejneru slidu.
+
+## Úprava
+
+- Přidán moderní klikací odkaz na portfolio: https://jankonrad-site.github.io/2025Bio/
+- Závěrečný slide přepracován na přehled předmětů pro online výuku.
+- Doplněny hover/active stavy a responzivní rozvržení nových prvků.
